@@ -1,6 +1,8 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, username, ... }:
 {
   programs.hyprland.enable = true;
+  services.getty.autologinUser = username;
+  services.getty.autologinOnce = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;

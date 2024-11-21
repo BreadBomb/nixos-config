@@ -110,14 +110,6 @@ in
           popups = true;
           popups_ignorealpha = 0.6;
         };
-
-        drop_shadow = true;
-
-        shadow_ignore_window = true;
-        shadow_offset = "0 2";
-        shadow_range = 20;
-        shadow_render_power = 4;
-        "col.shadow" = "rgba(0000002A)";
       };
 
       animations = {
@@ -364,10 +356,16 @@ in
       env = XDG_SESSION_TYPE,wayland
       env = GBM_BACKEND,nvidia-drm
       env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+      env = NVD_BACKEND,direct
+      env = ELECTRON_OZONE_PLATFORM_HINT,auto
 
       cursor {
           no_hardware_cursors = true
       }
-    ";
+
+      debug {
+        damage_tracking = 0  
+      }
+ ";
   };
 }

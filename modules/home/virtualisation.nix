@@ -5,7 +5,7 @@
   inputs.nixvirt.nixosModules.default.virtualisation.libvirt = {
     enable = true;
     swtpm.enable = true;
-    connections."qemu:///session".domains = [
+    connections."qemu:///sessions".domains = [
       {
       definition = inputs.nixvirt.lib.domain.writeXML (inputs.nixvirt.lib.domain.templates.windows
         {
