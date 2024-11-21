@@ -1,29 +1,23 @@
+{ inputs, pkgs, ... }:
 {
-  pkgs,
-  system,
-  ags,
-  astal,
-  ...
-}: {
-  packages.${system}. default = pkgs.stdenvNoCC.mkDerivation rec {
-      name = "my-shell";
-      src = ./.;
+  # add the home manager module
+  imports = [ inputs.ags.homeManagerModules.default ];
 
-      nativeBuildInputs = [
-        ags.packages.${system}.default
-        pkgs.wrapGAppsHook
-        pkgs.gobject-introspection
-      ];
+  programs.ags = {
+    enable = true;
 
-      buildInputs = with astal.packages.${system}; [
-        astal3
-        io
-        # any other package
-      ];
+    # symlink to ~/.config/ags
+    configDir = ./ags;
 
-      installPhase = ''
-        mkdir -p $out/bin
-        ags bundle app.ts $out/bin/${name}
-      '';
-    };
+    # additional packages to add to gjs's runtime
+    extraPackages = with pkgs; [
+      inputs.ags.packages.${pkgs.system}.battery
+      inputs.ags.packages.${pkgs.system}.hyprland
+      inputs.ags.packages.${pkgs.system}.network
+      inputs.ags.packages.${pkgs.system}.tray
+      inputs.ags.packages.${pkgs.system}.apps
+      inputs.ags.packages.${pkgs.system}.greet
+      fzf
+    ];
+  };
 }

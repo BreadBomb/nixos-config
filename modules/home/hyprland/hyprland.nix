@@ -4,7 +4,7 @@
     wayland
     direnv
     hyprcursor
-    inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+    inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
@@ -14,7 +14,7 @@
       #hidpi = true;
     };
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
     #enableNvidiaPatches = true;
     systemd.enable = true;

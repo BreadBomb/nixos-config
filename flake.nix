@@ -37,15 +37,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
   };
 
@@ -62,12 +58,12 @@
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ ./hosts/desktop ];
-        specialArgs = { host="desktop"; inherit self inputs username; };
+        specialArgs = { host="desktop"; inherit self inputs username system; };
       };
       laptop = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ ./hosts/laptop ];
-        specialArgs = { host="laptop"; inherit self inputs username; };
+        specialArgs = { host="laptop"; inherit self inputs username system; };
       };
     };
   };
