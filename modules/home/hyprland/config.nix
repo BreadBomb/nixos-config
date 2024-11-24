@@ -9,7 +9,6 @@ in
       exec-once = [
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "hyprlock &"
-        "ags -b hypr"
 
         ## App auto start
         # "[workspace 1 silent] floorp"
@@ -68,18 +67,18 @@ in
         initial_workspace_tracking = false;
       };
 
-      plugin = {
-        hyprexpo = {
-          columns = 3;
-          gap_size = 5;
-          bg_col = "rgb(000000)";
-          workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+      # plugin = {
+      #   hyprexpo = {
+      #     columns = 3;
+      #     gap_size = 5;
+      #     bg_col = "rgb(000000)";
+      #     workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
 
-          enable_gesture = false; # laptop touchpad, 4 fingers
-          gesture_distance = 300; # how far is the "max"
-          gesture_positive = false;
-        };
-      };
+      #     enable_gesture = false; # laptop touchpad, 4 fingers
+      #     gesture_distance = 300; # how far is the "max"
+      #     gesture_positive = false;
+      #   };
+      # };
 
       dwindle = {
         preserve_split = true;
@@ -160,9 +159,9 @@ in
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, exec, toggle_float"
-        "$mainMod, D, exec, ags -b hypr -t launcher"
+        "$mainMod, D, exec, rofi -show drun"
         "$mainMod, TAB, exec, ags -b hypr -t overview"
-        "$mainMod, grave, hyprexpo:expo, toggle"
+        #"$mainMod, grave, hyprexpo:expo, toggle"
         "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, L, exec, hyprlock"
@@ -261,6 +260,11 @@ in
         "$mainMod, mouse:273, resizewindow"
       ];
 
+      layerrule = [
+        "blur, gtk-layer-shell"
+        "ignorealpha, gtk-layer-shell"
+      ];
+
       # windowrule
       windowrule = [
         "float,qView"
@@ -305,7 +309,6 @@ in
         "workspace 4, class:^(Gimp-2.10)$"
         "workspace 4, class:^(Aseprite)$"
         "workspace 5, class:^(Audacious)$"
-        "workspace 5, class:^(Spotify)$"
         "workspace 8, class:^(com.obsproject.Studio)$"
         "workspace 10, class:^(discord)$"
         "workspace 10, class:^(WebCord)$"
@@ -361,10 +364,6 @@ in
 
       cursor {
           no_hardware_cursors = true
-      }
-
-      debug {
-        damage_tracking = 0  
       }
  ";
   };

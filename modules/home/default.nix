@@ -6,6 +6,6 @@
     ./rofi.nix
     ./theme.nix
     ./alacritty.nix
-    ./shell.nix
+    ./matugen.nix
   ];
 }

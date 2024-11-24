@@ -1,6 +1,15 @@
 { inputs, pkgs, ...}: 
 {
   home.packages = with pkgs; [
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "IBMPlexMono"
+        "Iosevka"
+        "IosevkaTerm"
+        "NerdFontsSymbolsOnly"
+      ];
+    })
+
     wayland
     direnv
     hyprcursor
@@ -14,7 +23,7 @@
       #hidpi = true;
     };
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
     #enableNvidiaPatches = true;
     systemd.enable = true;

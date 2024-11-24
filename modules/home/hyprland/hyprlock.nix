@@ -19,7 +19,7 @@
         }
         {
           monitor = "DP-2";
-          path = "${inputs.self}/wallpapers/2paggfqi38aa1.webp";
+          path = "${inputs.self}/wallpapers/cat.jpg";
           blur_passes = 3;
           contrast = 0.8916;
           brightness = 0.8172;

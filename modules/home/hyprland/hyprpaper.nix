@@ -7,11 +7,11 @@
     enable = true;
     settings = {
       preload = [
-        "${inputs.self}/wallpapers/2paggfqi38aa1.webp"
+        "${inputs.self}/wallpapers/cat.jpg"
       ];
         wallpaper = [
-          "DP-2,${inputs.self}/wallpapers/2paggfqi38aa1.webp"
-          "DP-1,${inputs.self}/wallpapers/2paggfqi38aa1.webp"
+          "DP-2,${inputs.self}/wallpapers/cat.jpg"
+          "DP-1,${inputs.self}/wallpapers/cat.jpg"
         ];
     };
   };

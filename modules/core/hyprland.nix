@@ -3,6 +3,18 @@
   programs.hyprland.enable = true;
   services.getty.autologinUser = username;
   services.getty.autologinOnce = true;
+
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "Hyprland";
+        user = "jonah";
+      };
+      default_session = initial_session;
+    };
+  };
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
